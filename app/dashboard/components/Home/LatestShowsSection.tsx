@@ -1,11 +1,10 @@
 import BandsCarousel, { CarouselItem } from "../common/BandsCarousel";
 
 const items: CarouselItem[] = [
-  { id: 1, type: "band", name: "Emicida", image: "emicida.png" },
-  { id: 2, type: "band", name: "Iron Maiden", image: "iron-maiden.png" },
+  { id: 1, type: "band", name: "Marshmello", image: "marshmello.png" },
+  { id: 2, type: "band", name: "Alok", image: "alok.png" },
   { id: 3, type: "band", name: "Rita Ora", image: "rita-ora.png" },
   { id: 4, type: "band", name: "Dream Theater", image: "dream-theate.png" },
-  { id: 5, type: "ad", image: "/assets/dashboard/common/tesla-announcement.png", link: "https://tesla.com" },
   { id: 6, type: "band", name: "Dua Lipa", image: "dua-lipa.png" },
   { id: 7, type: "band", name: "Maneskin", image: "maneskin.png" },
   { id: 8, type: "band", name: "Coldplay", image: "coldplay.png" },
@@ -19,6 +18,6 @@ const items: CarouselItem[] = [
   { id: 16, type: "band", name: "Ed Sheeran", image: "ed-sheeron.png" },
 ];
 
-export default function LineUpSection() {
-  return <BandsCarousel title="Line Up" items={items} />;
+export default function LatestShowsSection() {
+  return <BandsCarousel title="Yesterday Shows" items={items} />;
 }
