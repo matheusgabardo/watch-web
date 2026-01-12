@@ -2,6 +2,7 @@ import Header from "./components/Header/Index";
 import BannerSection from "./components/Home/BannerSection";
 import FestivalSection from "./components/Home/FestivalSection";
 import HeroSection from "./components/Home/HeroSection";
+import InLiveSection from "./components/Home/InLiveSection";
 import LineUpSection from "./components/Home/LineUpSection";
 
 export default function DashboardPage() {
@@ -12,6 +13,7 @@ export default function DashboardPage() {
       <LineUpSection />
       <FestivalSection />
       <BannerSection />
+      <InLiveSection />
     </>
   );
 }

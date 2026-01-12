@@ -32,8 +32,11 @@ body {
 .lineup-swiper .swiper-button-prev,
 .lineup-swiper .swiper-button-next,
 .festival-swiper .swiper-button-prev,
-.festival-swiper .swiper-button-next {
+.festival-swiper .swiper-button-next,
+.inlive-swiper .swiper-button-prev,
+.inlive-swiper .swiper-button-next {
   --swiper-navigation-color: #E96744;
+  color: #E96744 !important;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -41,7 +44,9 @@ body {
 .lineup-swiper:hover .swiper-button-prev,
 .lineup-swiper:hover .swiper-button-next,
 .festival-swiper:hover .swiper-button-prev,
-.festival-swiper:hover .swiper-button-next {
+.festival-swiper:hover .swiper-button-next,
+.inlive-swiper:hover .swiper-button-prev,
+.inlive-swiper:hover .swiper-button-next {
   opacity: 1;
 }
 
@@ -49,6 +54,8 @@ body {
 .lineup-swiper .swiper-button-next:after,
 .festival-swiper .swiper-button-prev:after,
 .festival-swiper .swiper-button-next:after,
+.inlive-swiper .swiper-button-prev:after,
+.inlive-swiper .swiper-button-next:after,
 .banner-swiper .swiper-button-prev:after,
 .banner-swiper .swiper-button-next:after {
   font-size: 24px;
