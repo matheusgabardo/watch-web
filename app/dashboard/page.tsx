@@ -1,3 +1,4 @@
+import Footer from "./components/Footer/Index";
 import Header from "./components/Header/Index";
 import BannerSection, { BannerItem } from "./components/Home/BannerSection";
 import FestivalSection from "./components/Home/FestivalSection";
@@ -32,6 +33,7 @@ export default function DashboardPage() {
       <RockSingers />
       <BannerSection items={banners2} />
       <WatchAgain />
+      <Footer />
     </>
   );
 }
