@@ -30,39 +30,51 @@ body {
 }
 
 .lineup-swiper .swiper-button-prev,
-.lineup-swiper .swiper-button-next {
-  --swiper-navigation-color: #E96744 !important;
-  color: #E96744 !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
+.lineup-swiper .swiper-button-next,
+.festival-swiper .swiper-button-prev,
+.festival-swiper .swiper-button-next {
+  --swiper-navigation-color: #E96744;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .lineup-swiper:hover .swiper-button-prev,
-.lineup-swiper:hover .swiper-button-next {
-  opacity: 1 !important;
+.lineup-swiper:hover .swiper-button-next,
+.festival-swiper:hover .swiper-button-prev,
+.festival-swiper:hover .swiper-button-next {
+  opacity: 1;
 }
 
 .lineup-swiper .swiper-button-prev:after,
-.lineup-swiper .swiper-button-next:after {
-  font-size: 24px !important;
-  font-weight: bold !important;
-}
-
-.festival-swiper .swiper-button-prev,
-.festival-swiper .swiper-button-next {
-  --swiper-navigation-color: #E96744 !important;
-  color: #E96744 !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
-}
-
-.festival-swiper:hover .swiper-button-prev,
-.festival-swiper:hover .swiper-button-next {
-  opacity: 1 !important;
-}
-
+.lineup-swiper .swiper-button-next:after,
 .festival-swiper .swiper-button-prev:after,
-.festival-swiper .swiper-button-next:after {
-  font-size: 24px !important;
-  font-weight: bold !important;
+.festival-swiper .swiper-button-next:after,
+.banner-swiper .swiper-button-prev:after,
+.banner-swiper .swiper-button-next:after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.banner-swiper .swiper-button-prev,
+.banner-swiper .swiper-button-next {
+  --swiper-navigation-color: #E96744;
+}
+
+.banner-pagination {
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-inactive-color: #E96744;
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
+  --swiper-pagination-color: #E96744;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.banner-pagination .swiper-pagination-bullet {
+  margin: 0 !important;
+}
+
+.banner-pagination .swiper-pagination-bullet-active {
+  --swiper-pagination-bullet-size: 12px;
 }

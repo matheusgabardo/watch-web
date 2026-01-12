@@ -43,7 +43,7 @@ export default function FestivalSection() {
                             {festivals.map((festival) => (
                                 <SwiperSlide key={festival.id} className="!w-[208px]">
                                     <div
-                                        className="rounded-lg px-4 pb-8 w-[208px] h-[208px] flex flex-col justify-end cursor-pointer"
+                                        className="rounded-lg px-4 pb-8 w-[208px] h-[208px] flex flex-col justify-end cursor-pointer transition-shadow duration-300 hover:shadow-[inset_0_0_0_3px_#E96744]"
                                         style={{
                                             background: `${festival.gradient}, url(/assets/dashboard/bg/w.svg) right bottom no-repeat`
                                         }}
