@@ -79,6 +79,10 @@ export default function HeroSection() {
     setShowSettings(!showSettings);
   };
 
+  const nextCamera = () => {
+    setActiveCamera((prev) => (prev + 1) % cameras.length);
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -99,6 +103,14 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-black/50" />
 
+      {/* Bottom gradient */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 z-1"
+        style={{
+          background: "linear-gradient(180deg, transparent 0%, #1E1E22 100%)"
+        }}
+      />
+
       <div
         className={`relative z-10 flex justify-center h-full w-full py-16 transition-opacity duration-300 ${
           showControls ? "opacity-100" : "opacity-0"
@@ -116,9 +128,12 @@ export default function HeroSection() {
             </div>
             <div className="mt-auto flex">
               <div>
-                <button className="flex gap-1 h-8 pl-[18px] pr-6 rounded-[16px] bg-[#E96744] items-center justify-center text-base font-medium">
+                <button
+                  onClick={nextCamera}
+                  className="flex gap-1 h-8 pl-[18px] pr-6 rounded-[16px] bg-[#E96744] items-center justify-center text-base font-medium cursor-pointer"
+                >
                   <CameraIcon />
-                  Chose your camera
+                  Choose your camera
                 </button>
               </div>
               <div className="ml-auto flex gap-6">
