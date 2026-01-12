@@ -87,7 +87,7 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative h-[calc(100vh-64px)] overflow-hidden"
+      className="relative h-[60vh] sm:h-[70vh] lg:h-[calc(100vh-64px)] overflow-hidden"
     >
       <video
         ref={videoRef}
@@ -105,7 +105,7 @@ export default function HeroSection() {
 
       {!isFullScreen && (
         <div
-          className="absolute top-0 left-0 right-0 h-32 z-1"
+          className="absolute top-0 left-0 right-0 h-20 lg:h-32 z-1"
           style={{
             background: "linear-gradient(0deg, transparent 0%, #1E1E22 100%)"
           }}
@@ -114,7 +114,7 @@ export default function HeroSection() {
 
       {!isFullScreen && (
         <div
-          className="absolute bottom-0 left-0 right-0 h-32 z-1"
+          className="absolute bottom-0 left-0 right-0 h-20 lg:h-32 z-1"
           style={{
             background: "linear-gradient(180deg, transparent 0%, #1E1E22 100%)"
           }}
@@ -122,32 +122,33 @@ export default function HeroSection() {
       )}
 
       <div
-        className={`relative z-10 flex justify-center h-full w-full py-16 transition-opacity duration-300 ${
+        className={`relative z-10 flex justify-center h-full w-full py-8 lg:py-16 px-4 lg:px-0 transition-opacity duration-300 ${
           showControls ? "opacity-100" : "opacity-0"
         }`}
       >
         <div className="container">
           <div className="flex flex-col h-full">
             <div className="d-flex flex-col">
-              <h3 className="text-primary-text text-[32px]">Avril Lavigne</h3>
-              <ul className="flex items-center gap-1 text-primary-text text-sm font-normal">
+              <h3 className="text-primary-text text-xl sm:text-2xl lg:text-[32px]">Avril Lavigne</h3>
+              <ul className="flex items-center gap-1 text-primary-text text-xs sm:text-sm font-normal">
                 <li>LIVE</li>
                 <li className="before:content-['•'] before:mr-1">Sunset</li>
-                <li className="before:content-['•'] before:mr-1">Singer Camera</li>
+                <li className="before:content-['•'] before:mr-1 hidden sm:list-item">Singer Camera</li>
               </ul>
             </div>
-            <div className="mt-auto flex">
+            <div className="mt-auto flex flex-col sm:flex-row gap-4 sm:gap-0">
               <div>
                 <button
                   onClick={nextCamera}
-                  className="flex gap-1 h-8 pl-[18px] pr-6 rounded-[16px] bg-[#E96744] items-center justify-center text-base font-medium cursor-pointer"
+                  className="flex gap-1 h-8 pl-4 pr-5 lg:pl-4.5 lg:pr-6 rounded-2xl bg-[#E96744] items-center justify-center text-sm lg:text-base font-medium cursor-pointer"
                 >
                   <CameraIcon />
-                  Choose your camera
+                  <span className="hidden sm:inline">Choose your camera</span>
+                  <span className="sm:hidden">Camera</span>
                 </button>
               </div>
-              <div className="ml-auto flex gap-6">
-                <div className="grid grid-cols-2 gap-1 w-12 h-12 opacity-60">
+              <div className="sm:ml-auto flex items-center gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 gap-1 w-10 h-10 lg:w-12 lg:h-12 opacity-60">
                   {cameras.map((camera, index) => (
                     <button
                       key={camera.id}
@@ -158,7 +159,7 @@ export default function HeroSection() {
                     />
                   ))}
                 </div>
-                <button onClick={toggleFullScreen} className="cursor-pointer">
+                <button onClick={toggleFullScreen} className="cursor-pointer hidden sm:block">
                   {isFullScreen ? <ExitFullScreenIcon /> : <FullScreenIcon />}
                 </button>
                 <button onClick={toggleMute} className={`cursor-pointer ${isMuted ? "opacity-40" : ""}`}>

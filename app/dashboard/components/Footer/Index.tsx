@@ -8,12 +8,12 @@ import XIcon from "@/components/icons/social/XIcon";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A1A] pt-8 pb-6">
-      <div className="container mx-auto">
-        <hr className="border-[#3D3D3F] mb-8" />
+    <footer className="bg-[#1A1A1A] pt-6 lg:pt-8 pb-6">
+      <div className="container mx-auto px-4 lg:px-0">
+        <hr className="border-[#3D3D3F] mb-6 lg:mb-8" />
 
-        <div className="flex justify-between gap-8 mb-8">
-          <div className="flex-1">
+        <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-8 mb-6 lg:mb-8">
+          <div className="order-2 lg:order-1 flex-1">
             <p className="text-[#8A8A8A] text-xs leading-relaxed">
               heck the Parental Guidance Rating © 2024 WarnerMedia Direct Latin America, LLC. All rights reserved. Max is used under license.
               <br />
@@ -26,7 +26,7 @@ export default function Footer() {
               Paramount+ © 2024 Paramount. All rights reserved.
             </p>
           </div>
-          <div className="flex flex-col items-end gap-2">
+          <div className="order-1 lg:order-2 flex flex-col items-center lg:items-end gap-2">
             <Image
               src="/assets/dashboard/logo/watch-festival.svg"
               alt="Watch Festival"
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 lg:mb-8">
           <ul className="flex gap-4">
             <li>
               <a href="#" className="text-white hover:text-gray-300 transition-colors">
@@ -71,13 +71,14 @@ export default function Footer() {
             </li>
           </ul>
 
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4">
             <a href="#" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/assets/dashboard/common/download-playstore.png"
                 alt="Download on Google Play"
                 width={135}
                 height={40}
+                className="w-28 sm:w-auto h-auto"
               />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
@@ -86,24 +87,25 @@ export default function Footer() {
                 alt="Download on App Store"
                 width={135}
                 height={40}
+                className="w-28 sm:w-auto h-auto"
               />
             </a>
           </div>
         </div>
 
-        <ul className="flex gap-8">
+        <ul className="flex flex-wrap justify-center sm:justify-start gap-4 lg:gap-8">
           <li>
-            <a href="#" className="text-white text-sm hover:underline">
+            <a href="#" className="text-white text-xs sm:text-sm hover:underline">
               About Labs Festival
             </a>
           </li>
           <li>
-            <a href="#" className="text-white text-sm hover:underline">
+            <a href="#" className="text-white text-xs sm:text-sm hover:underline">
               Terms of use and privacy
             </a>
           </li>
           <li>
-            <a href="#" className="text-white text-sm hover:underline">
+            <a href="#" className="text-white text-xs sm:text-sm hover:underline">
               Send feedback
             </a>
           </li>

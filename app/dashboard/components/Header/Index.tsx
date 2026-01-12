@@ -27,10 +27,16 @@ const exclusiveContentItems = [
 
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = (dropdown: string) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    setOpenDropdown(null);
   };
 
   useEffect(() => {
@@ -46,15 +52,51 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
-      <header className="flex items-center h-16 header-gradient bg-main-bg">
+      <header className="flex items-center h-16 header-gradient bg-main-bg px-4 lg:px-0">
         <div className="container mx-auto">
-          <div className="flex items-center gap-10">
-            <div>
-              <Image alt="" src="/assets/dashboard/logo/watch-festival.svg" width={160} height={46} />
+          <div className="flex items-center gap-4 lg:gap-10">
+            <div className="shrink-0">
+              <Image
+                alt=""
+                src="/assets/dashboard/logo/watch-festival.svg"
+                width={160}
+                height={46}
+                className="w-30 lg:w-40 h-auto"
+              />
             </div>
-            <div ref={dropdownRef}>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden ml-auto p-2 text-primary-text"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+              )}
+            </button>
+
+            {/* Desktop navigation */}
+            <div ref={dropdownRef} className="hidden lg:block">
               <ul className="flex gap-10">
                 <li>
                   <Link href="/" className="flex items-center gap-1 cursor-pointer">
@@ -114,7 +156,9 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            <div className="ml-auto flex items-center gap-4">
+
+            {/* Desktop user menu */}
+            <div className="ml-auto hidden lg:flex items-center gap-4">
               <div className="relative">
                 <a
                   className="flex items-center gap-2 cursor-pointer"
@@ -139,6 +183,110 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+      {/* Mobile menu overlay */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 top-16 bg-main-bg z-50 overflow-y-auto">
+          <div className="flex flex-col p-4">
+            {/* Mobile user info */}
+            <div className="flex items-center gap-3 pb-4 mb-4 border-b border-white/10">
+              <Image alt="" src="/assets/dashboard/placeholder/user.svg" width={40} height={40} />
+              <div>
+                <h3 className="text-primary-text font-medium">Peter Parker</h3>
+                <p className="text-primary-text/60 text-sm">View Profile</p>
+              </div>
+            </div>
+
+            {/* Mobile navigation */}
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="/"
+                className="flex items-center gap-3 p-3 text-primary-text hover:bg-white/5 rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <HomeIcon />
+                Home
+              </Link>
+              <Link
+                href="/"
+                className="flex items-center gap-3 p-3 text-primary-text hover:bg-white/5 rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <LiveIcon />
+                Live
+              </Link>
+
+              {/* Musical Styles accordion */}
+              <div>
+                <button
+                  className="flex items-center justify-between w-full p-3 text-primary-text hover:bg-white/5 rounded-lg"
+                  onClick={() => toggleDropdown("musical-mobile")}
+                >
+                  <span className="flex items-center gap-3">
+                    <MusicalIcon />
+                    Musical Styles
+                  </span>
+                  <ArrowIcon className={`transition-transform duration-200 ${openDropdown === "musical-mobile" ? "rotate-180" : ""}`} />
+                </button>
+                {openDropdown === "musical-mobile" && (
+                  <div className="ml-10 mt-1 flex flex-col gap-1">
+                    {musicalStylesItems.filter(item => !item.isHeader).map((item, index) => (
+                      <Link
+                        key={index}
+                        href="/"
+                        className="p-2 text-primary-text/80 hover:text-primary-text hover:bg-white/5 rounded-lg"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Exclusive Content accordion */}
+              <div>
+                <button
+                  className="flex items-center justify-between w-full p-3 text-primary-text hover:bg-white/5 rounded-lg"
+                  onClick={() => toggleDropdown("exclusive-mobile")}
+                >
+                  <span className="flex items-center gap-3">
+                    <ExclusiveIcon />
+                    Exclusive Content
+                  </span>
+                  <ArrowIcon className={`transition-transform duration-200 ${openDropdown === "exclusive-mobile" ? "rotate-180" : ""}`} />
+                </button>
+                {openDropdown === "exclusive-mobile" && (
+                  <div className="ml-10 mt-1 flex flex-col gap-1">
+                    {exclusiveContentItems.filter(item => !item.isHeader).map((item, index) => (
+                      <Link
+                        key={index}
+                        href="/"
+                        className="p-2 text-primary-text/80 hover:text-primary-text hover:bg-white/5 rounded-lg"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </nav>
+
+            {/* Mobile settings */}
+            <div className="mt-auto pt-4 border-t border-white/10">
+              <Link
+                href="/"
+                className="flex items-center gap-3 p-3 text-primary-text hover:bg-white/5 rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <SettingsIcon />
+                Settings
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

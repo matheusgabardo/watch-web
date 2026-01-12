@@ -53,33 +53,36 @@ const liveItems = [
 
 export default function InLive() {
     return(
-        <section className="bg-main-bg py-10">
-            <div className="container mx-auto">
-                <div className="flex flex-col gap-6">
+        <section className="bg-main-bg py-8 lg:py-10">
+            <div className="container mx-auto px-4 lg:px-0">
+                <div className="flex flex-col gap-4 lg:gap-6">
                     <div className="flex justify-start">
-                        <h4 className="text-[#FAFAFA] text-2xl font-bold leading-[120%] tracking-[-0.48px]">In Live</h4>
+                        <h4 className="text-[#FAFAFA] text-xl lg:text-2xl font-bold leading-[120%] tracking-[-0.48px]">In Live</h4>
                     </div>
-                    <div className="inlive-swiper">
+                    <div className="inlive-swiper -mx-4 px-4 lg:mx-0 lg:px-0">
                         <Swiper
                             modules={[Navigation]}
-                            spaceBetween={16}
+                            spaceBetween={12}
                             slidesPerView="auto"
                             navigation
                             className="w-full"
+                            breakpoints={{
+                                640: { spaceBetween: 16 }
+                            }}
                         >
                         {liveItems.map((item) => (
-                            <SwiperSlide key={item.id} className="!w-auto">
-                                <div className="flex flex-col w-fit bg-[#3D3D3F] rounded-lg">
+                            <SwiperSlide key={item.id} className="w-72! sm:w-85! lg:w-auto!">
+                                <div className="flex flex-col w-full lg:w-fit bg-[#3D3D3F] rounded-lg">
                                     <div className="relative rounded-lg overflow-hidden">
                                         <Image
                                             src={item.image}
                                             alt={`${item.artist} - ${item.stage}`}
                                             width={440}
                                             height={208}
-                                            className="object-cover rounded-lg"
+                                            className="object-cover rounded-lg w-full h-auto"
                                         />
                                     </div>
-                                    <div className="flex flex-col gap-3 p-3">
+                                    <div className="flex flex-col gap-2 lg:gap-3 p-3">
                                         <div className="flex items-center justify-between">
                                             <h6 className="text-[#F97316] text-sm font-medium">{item.artist}</h6>
                                             <div className="flex items-center gap-1">

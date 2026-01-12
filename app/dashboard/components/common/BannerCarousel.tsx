@@ -21,9 +21,9 @@ export default function BannerCarousel({ items }: Props) {
   const paginationId = useId().replace(/:/g, "");
 
   return (
-    <section className="py-12 bg-main-bg">
-      <div className="container mx-auto">
-        <div className="bg-white px-8 py-6 rounded-lg">
+    <section className="py-8 lg:py-12 bg-main-bg">
+      <div className="container mx-auto px-4 lg:px-0">
+        <div className="bg-white px-4 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6 rounded-lg">
           <Swiper
             modules={[Navigation, Autoplay, Pagination]}
             spaceBetween={16}
