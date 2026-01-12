@@ -26,10 +26,9 @@ body {
 }
 
 .header-gradient {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.10) 100%), linear-gradient(180deg, #2B2B2E 0%, rgba(43, 43, 46, 0.60) 54.69%, rgba(43, 43, 46, 0.00) 100%);
+  background: #1E1E22;
 }
 
-/* Swiper Navigation Arrows */
 .lineup-swiper .swiper-button-prev,
 .lineup-swiper .swiper-button-next {
   --swiper-navigation-color: #E96744 !important;
@@ -45,6 +44,25 @@ body {
 
 .lineup-swiper .swiper-button-prev:after,
 .lineup-swiper .swiper-button-next:after {
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+
+.festival-swiper .swiper-button-prev,
+.festival-swiper .swiper-button-next {
+  --swiper-navigation-color: #E96744 !important;
+  color: #E96744 !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.festival-swiper:hover .swiper-button-prev,
+.festival-swiper:hover .swiper-button-next {
+  opacity: 1 !important;
+}
+
+.festival-swiper .swiper-button-prev:after,
+.festival-swiper .swiper-button-next:after {
   font-size: 24px !important;
   font-weight: bold !important;
 }

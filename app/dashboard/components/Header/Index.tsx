@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex items-center h-16 header-gradient">
+      <header className="flex items-center h-16 header-gradient bg-main-bg">
         <div className="container mx-auto">
           <div className="flex items-center gap-10">
             <div>

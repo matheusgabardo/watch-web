@@ -87,7 +87,7 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative h-[calc(100vh-68px)] overflow-hidden"
+      className="relative h-[calc(100vh-64px)] overflow-hidden"
     >
       <video
         ref={videoRef}
@@ -103,13 +103,23 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Bottom gradient */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 z-1"
-        style={{
-          background: "linear-gradient(180deg, transparent 0%, #1E1E22 100%)"
-        }}
-      />
+      {!isFullScreen && (
+        <div
+          className="absolute top-0 left-0 right-0 h-32 z-1"
+          style={{
+            background: "linear-gradient(0deg, transparent 0%, #1E1E22 100%)"
+          }}
+        />
+      )}
+
+      {!isFullScreen && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 z-1"
+          style={{
+            background: "linear-gradient(180deg, transparent 0%, #1E1E22 100%)"
+          }}
+        />
+      )}
 
       <div
         className={`relative z-10 flex justify-center h-full w-full py-16 transition-opacity duration-300 ${
