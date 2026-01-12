@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -17,6 +18,8 @@ type Props = {
 };
 
 export default function BannerCarousel({ items }: Props) {
+  const paginationId = useId().replace(/:/g, "");
+
   return (
     <section className="py-12 bg-main-bg">
       <div className="container mx-auto">
@@ -29,7 +32,7 @@ export default function BannerCarousel({ items }: Props) {
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{
               clickable: true,
-              el: ".banner-pagination",
+              el: `.banner-pagination-${paginationId}`,
             }}
             loop
             className="banner-swiper"
@@ -46,7 +49,7 @@ export default function BannerCarousel({ items }: Props) {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="banner-pagination flex justify-center gap-2 mt-4"></div>
+          <div className={`banner-pagination banner-pagination-${paginationId} mt-4`} />
         </div>
       </div>
     </section>

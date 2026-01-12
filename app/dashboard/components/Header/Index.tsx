@@ -2,6 +2,7 @@
 
 import { ArrowIcon, ExclusiveIcon, HomeIcon, LiveIcon, MusicalIcon, SettingsIcon } from "@/components/icons";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 const musicalStylesItems = [
@@ -56,16 +57,16 @@ export default function Header() {
             <div ref={dropdownRef}>
               <ul className="flex gap-10">
                 <li>
-                  <a className="flex items-center gap-1 cursor-pointer">
+                  <Link href="/" className="flex items-center gap-1 cursor-pointer">
                     <HomeIcon />
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="flex items-center gap-1 cursor-pointer">
+                  <Link href="/" className="flex items-center gap-1 cursor-pointer">
                     <LiveIcon />
                     Live
-                  </a>
+                  </Link>
                 </li>
                 <li className="relative">
                   <a
